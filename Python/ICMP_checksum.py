@@ -27,11 +27,10 @@ def comp_checksum(msg):
 if __name__=='__main__':
     type = '\x08'  # ICMP Echo Request
     code = '\x00'
-    checksum_padding = '\x4c\x60'  # 发送时该字段被置零，接收时抓包查看
+    checksum_padding = '\x4c\x60'  # 发送时该字段被置零
     id = '\x00\x01'  # ID，该字段需要抓包查看
     seq = '\x00\xfb'  # Sequence，该字段需要抓包查看
     body = "abcdefghijklmnopqrstuvwabcdefghi"  # 装载数据
     icmp_msg = type + code + checksum_padding + id + seq + body
-
     checksum = comp_checksum(icmp_msg)
     print('{:x}'.format(checksum))
