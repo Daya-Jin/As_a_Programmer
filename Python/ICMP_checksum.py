@@ -1,3 +1,6 @@
+import struct
+
+
 def accumulate(acc, add):
     '''
     16位累加，超出部分再加到低位上
@@ -17,20 +20,21 @@ def comp_checksum(msg):
     '''
     acc = 0
     for i in range(0, len(msg), 2):  # 16bit一组
-        group_val = ord(msg[i]) + (ord(msg[i + 1]) << 8)  # 16bit的值，注意字节顺序
+        group_val = msg[i] + (msg[i + 1] << 8)  # 16bit的值，注意字节顺序
         acc = accumulate(acc, group_val)
 
     h = ~acc & 0xffff  # host byte order(取反并截取低16位)
     return h >> 8 | (h << 8 & 0xff00)  # network byte order(高8位低8位互换)
 
 
-if __name__=='__main__':
-    type = '\x08'  # ICMP Echo Request
-    code = '\x00'
-    checksum_padding = '\x4c\x60'  # 发送时该字段被置零
-    id = '\x00\x01'  # ID，该字段需要抓包查看
-    seq = '\x00\xfb'  # Sequence，该字段需要抓包查看
-    body = "abcdefghijklmnopqrstuvwabcdefghi"  # 装载数据
-    icmp_msg = type + code + checksum_padding + id + seq + body
+if __name__ == '__main__':
+    type = 8  # Type: '\x08'(ICMP Echo Request)
+    code = 0  # Code: '\x00'
+    checksum = 0  # Checksum
+    id = 1  # ID: '\x00\x01'
+    seq = 251  # Sequence: '\x00\xfb'
+    body = b"abcdefghijklmnopqrstuvwabcdefghi"  # Data
+    icmp_msg = struct.pack('!BBHHH32s', type, code, checksum, id, seq, body)
+
     checksum = comp_checksum(icmp_msg)
-    print('{:x}'.format(checksum))
+    assert checksum == 19552  # '\x4c60'
