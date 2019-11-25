@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b29144cd-a3dd-4653-882f-96c25eb5d68e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ICMP_checksum.py" beforeDir="false" afterPath="$PROJECT_DIR$/ICMP_checksum.py" afterDir="false" />
-    </list>
+    <list default="true" id="b29144cd-a3dd-4653-882f-96c25eb5d68e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="374">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
               <folding>
                 <element signature="e#1#28#0" expanded="true" />
               </folding>
@@ -217,8 +215,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="374">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="e#1#28#0" expanded="true" />
           </folding>
