@@ -26,5 +26,9 @@ if __name__ == "__main__":
         results.append(pool.apply_async(func, (s, e, 0)))
     for res in results:
         acc += res.get()
+        
+    pool.close()
+    pool.join()
+        
     toc = time.time()
     print(acc % 1000007, toc - tic)
