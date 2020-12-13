@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/cpp_proj.dir/main.cpp.o -o cpp_proj   -L/home/daya/cpp_proj/lib  -Wl,-rpath,/home/daya/cpp_proj/lib -ltest 
